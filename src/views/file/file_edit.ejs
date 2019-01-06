@@ -1,0 +1,30 @@
+<% include ../parts/_header.ejs  %>
+
+<div class="container">
+    <div class="row">
+        <!-- FROM -->
+        <div class="col-md-5 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    Edit File
+                </div>
+                <form action="/editfile/<%= file._id %>" method="POST">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input type="text" name="path" placeholder="Insert a path" class="form-control" value="<%= file.path %>">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="size" placeholder="Insert a size" class="form-control" value="<%= file.size %>">
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../parts/_footer.ejs  %>

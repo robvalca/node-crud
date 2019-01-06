@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <!-- FROM -->
-        <div class="col-lg-5">
+        <div class="col-md-5">
             <div class="card">
                 <div class="card-header">
                     Add File
@@ -25,7 +25,7 @@
             </div>
         </div>
         <!-- LIST -->
-        <div class="col-lg-7">
+        <div class="col-md-7">
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
@@ -42,8 +42,8 @@
                         <td><%= files[i].path %></td>
                         <td><%= files[i].size %></td>
                         <td>
-                            <a href="" class="btn btn-success">Edit</a>
-                            <a href="" class="btn btn-danger">Delete</a>
+                            <a href="/editfile/<%= files[i]._id %>" class="btn btn-warning">Edit</a>
+                            <a href="/delfile/<%= files[i]._id %>" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                 <% } %>

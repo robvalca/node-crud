@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
     const files = await File.find();
     console.log(files);
     res.render('index', {
-        files:files
+        files
     });
 });
 
@@ -17,6 +17,26 @@ router.post('/addfile', async (req, res) => {
         .then(file => console.log(file))
         .catch(err => console.log(err));
     console.log(req.body);
+    res.redirect('/');
+});
+
+router.get('/delfile/:id', async (req, res) => {
+    const { id } = req.params;
+    await File.remove({_id: id});
+    res.redirect('/');
+});
+
+router.get('/editfile/:id', async (req, res) => {
+    const { id } = req.params;
+    const file = await File.findById({_id: id});
+    res.render('file/file_edit', {
+        file
+    });
+});
+
+router.post('/editfile/:id', async (req, res) => {
+    const { id } = req.params;
+    await File.update({_id: id}, req.body);
     res.redirect('/');
 });
 
