@@ -1,0 +1,56 @@
+<% include parts/_header.ejs  %>
+
+<div class="container">
+    <div class="row">
+        <!-- FROM -->
+        <div class="col-lg-5">
+            <div class="card">
+                <div class="card-header">
+                    Add File
+                </div>
+                <form action="/addfile" method="POST">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input type="text" name="path" placeholder="Insert a path" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="size" placeholder="Insert a size" class="form-control">
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <!-- LIST -->
+        <div class="col-lg-7">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>number</th>
+                        <th>path</th>
+                        <th>size</th>
+                        <th>Operation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% for(var i = 0; i < files.length; i++) { %>
+                    <tr>
+                        <td><%= i + 1 %></td>
+                        <td><%= files[i].path %></td>
+                        <td><%= files[i].size %></td>
+                        <td>
+                            <a href="" class="btn btn-success">Edit</a>
+                            <a href="" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<% include parts/_footer.ejs  %>
