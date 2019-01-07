@@ -7,9 +7,10 @@ NodeJS Simple CRUD.
 
 ## How-To
 - After starting MongoDB, run:
-
-```angular2
-node src/app.js
 ```
+$ npm install
+$ node src/app.js
+```
+
 - Access the webpage through http://localhost:3000
 

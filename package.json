@@ -23,6 +23,7 @@
   "dependencies": {
     "morgan": "latest",
     "express": "latest",
-    "mongoose": "latest"
+    "mongoose": "latest",
+    "ejs": "latest"
   }
 }

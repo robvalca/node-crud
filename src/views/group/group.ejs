@@ -1,0 +1,51 @@
+<% include ../parts/_header.ejs  %>
+
+<div class="container">
+    <div class="row">
+        <!-- FROM -->
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header">
+                    Add Group
+                </div>
+                <form action="/addgroup" method="POST">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Insert a group name" class="form-control">
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <!-- LIST -->
+        <div class="col-md-7">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>number</th>
+                        <th>name</th>
+                        <th>Operation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% for(var i = 0; i < groups.length; i++) { %>
+                    <tr>
+                        <td><%= i + 1 %></td>
+                        <td><%= groups[i].name %></td>
+                        <td>
+                            <a href="/editgroup/<%= groups[i]._id %>" class="btn btn-warning">Edit</a>
+                            <a href="/delgroup/<%= groups[i]._id %>" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<% include ../parts/_footer.ejs  %>
